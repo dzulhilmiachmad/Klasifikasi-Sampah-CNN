@@ -1,0 +1,56 @@
+# Hasil Evaluasi Model
+(Akurasi Model)
+Model Convolutional Neural Network (CNN) dilatih menggunakan dataset TrashNet yang terdiri dari enam kategori sampah, yaitu: 
+cardboard, glass, metal, paper, plastic, dan trash.
+
+Hasil pelatihan menunjukkan bahwa model mencapai:
+Training Accuracy: 99,06%
+Validation Accuracy: 50,89%
+
+Perbedaan yang cukup besar antara training accuracy dan validation accuracy menunjukkan bahwa model mengalami overfitting, yaitu 
+model mampu mempelajari data training dengan sangat baik, namun kemampuan generalisasi terhadap data baru masih terbatas.
+
+# Classification Report
+| Kelas     | Precision | Recall | F1-Score |
+| --------- | --------- | ------ | -------- |
+| Cardboard | 0.58      | 0.41   | 0.48     |
+| Glass     | 0.46      | 0.62   | 0.53     |
+| Metal     | 0.39      | 0.39   | 0.39     |
+| Paper     | 0.69      | 0.78   | 0.73     |
+| Plastic   | 0.37      | 0.24   | 0.29     |
+| Trash     | 0.42      | 0.52   | 0.47     |
+
+# Rata-rata performa model:
+Precision: 0.50
+Recall: 0.51
+F1-Score: 0.50
+Accuracy: 0.51
+
+# Analisis Hasil
+Berdasarkan hasil evaluasi, kelas paper memiliki performa terbaik dengan nilai F1-Score sebesar 0,73. 
+Hal ini menunjukkan bahwa karakteristik visual sampah kertas relatif mudah dikenali oleh model CNN.
+Sebaliknya, kelas plastic memiliki performa terendah dengan nilai F1-Score sebesar 0,29. Rendahnya 
+performa pada kelas ini diduga disebabkan oleh kemiripan bentuk dan tekstur dengan beberapa kategori 
+sampah lainnya, sehingga model lebih sering melakukan kesalahan klasifikasi. Kelas glass, cardboard, 
+dan trash menunjukkan performa yang cukup baik dengan nilai F1-Score antara 0,47 hingga 0,53. Sementara 
+itu, kelas metal masih memiliki tingkat pengenalan yang sedang dengan F1-Score sebesar 0,39.
+
+# Confusion Matrix
+Confusion Matrix digunakan untuk melihat distribusi prediksi model terhadap masing-masing kelas. 
+Dari hasil Confusion Matrix dapat diketahui bahwa beberapa kelas masih sering tertukar dengan 
+kelas lain yang memiliki karakteristik visual serupa.
+
+# Hasil Pengujian Gambar Baru
+Model diuji menggunakan gambar baru yang tidak digunakan selama proses pelatihan. Hasil pengujian menunjukkan bahwa model berhasil mengklasifikasikan:
+Gambar sampah plastik sebagai Plastic
+Gambar sampah kardus sebagai Cardboard
+Hal ini menunjukkan bahwa model mampu melakukan prediksi terhadap data baru meskipun masih terdapat keterbatasan dalam kemampuan generalisasi.
+
+# Kesimpulan Evaluasi
+Model CNN berhasil diterapkan untuk melakukan klasifikasi sampah ke dalam enam kategori. 
+Hasil evaluasi menunjukkan bahwa model memperoleh akurasi validasi sebesar 50,89% dengan 
+performa terbaik pada kelas Paper dan performa terendah pada kelas Plastic. Meskipun masih 
+terdapat gejala overfitting, model telah mampu melakukan klasifikasi dan prediksi terhadap 
+gambar baru dengan cukup baik. Pengembangan lebih lanjut dapat dilakukan melalui penggunaan 
+data augmentation, penambahan jumlah dataset, atau penerapan transfer learning seperti 
+MobileNetV2 dan EfficientNet untuk meningkatkan akurasi model.
